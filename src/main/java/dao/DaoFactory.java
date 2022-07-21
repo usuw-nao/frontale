@@ -17,6 +17,9 @@ public class DaoFactory {
 	public static JugeDao createJugeDao() {
 		return new JugeDaoImpl(getDataSource());
 	}
+	public static ReviewDao createReviewDao() {
+		return new ReviewDaoImpl(getDataSource());
+	}
 
 	private static DataSource getDataSource() {
 		InitialContext ctx = null;

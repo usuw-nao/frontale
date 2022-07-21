@@ -16,6 +16,9 @@ Login loginUser = (Login) session.getAttribute("loginUser");
 	<h1>フロンター〜れMyページ</h1>
 	<p>お帰りなさい${userId }様</p>
 	<p>
+	<a href="gallery">観戦フォトギャラリー</a>
+	</p>
+	<p>
 		<a href="juge">サッカー応援判定で遊ぶ</a>
 	</p>
 	<p>

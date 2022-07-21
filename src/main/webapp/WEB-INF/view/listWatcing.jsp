@@ -16,6 +16,7 @@
 			<th>対戦相手</th>
 			<th>場所</th>
 			<th colspan="2">データの操作</th>
+			<th>レビュー</th>
 		</tr>
 		<c:forEach items="${watchList }" var="watch">
 			<tr>
@@ -25,6 +26,7 @@
 				<td><c:out value="${watch.place }" /></td>
 				<td><a href="updateWatch?id=<c:out value="${watch.id }" />">更新</a></td>
 				<td><a href="deleteWatch?id=<c:out value="${watch.id }" />">削除</a></td>
+				<td><a href="Review">レビュー</a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -32,7 +34,7 @@
 		<a href="addWatch">観戦の追加</a>
 	</p>
 	<p>
-		<a href="/frontale/">戻る</a>
+		<a href="login">戻る</a>
 	</p>
 
 
