@@ -7,7 +7,7 @@ public class Review {
 	private String name;
 	private String text;
 	private Date registered;
-	private Integer revaluation;
+	private Integer evaluation;
 
 	public Integer getId() {
 		return id;
@@ -41,12 +41,12 @@ public class Review {
 		this.registered = registered;
 	}
 
-	public Integer getRevaluation() {
-		return revaluation;
+	public Integer getEvaluation() {
+		return evaluation;
 	}
 
-	public void setRevaluation(Integer revaluation) {
-		this.revaluation = revaluation;
+	public void setEvaluation(Integer evaluation) {
+		this.evaluation = evaluation;
 	}
 
 }
