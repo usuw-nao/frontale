@@ -35,6 +35,7 @@ public class UpdateWatchServlet extends HttpServlet {
 			request.setAttribute("matchDay", watch.getMatchDay());
 			request.setAttribute("game", watch.getGame());
 			request.setAttribute("place", watch.getPlace());
+			
 			request.getRequestDispatcher("/WEB-INF/view/updateWatch.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw new ServletException(e);

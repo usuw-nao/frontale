@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>観戦履歴</h1>
-	<table border="2">
+	<table border="3">
 		<tr>
 			<th>回数</th>
 			<th>試合日</th>
@@ -26,7 +26,8 @@
 				<td><c:out value="${watch.place }" /></td>
 				<td><a href="updateWatch?id=<c:out value="${watch.id }" />">更新</a></td>
 				<td><a href="deleteWatch?id=<c:out value="${watch.id }" />">削除</a></td>
-				<td><a href="Review">レビュー</a></td>
+				
+				<td><a href="Review?=id=<c:out value="${review}" />">レビュー</a></td>
 			</tr>
 		</c:forEach>
 	</table>

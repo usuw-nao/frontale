@@ -23,11 +23,11 @@ public class ReviewDaoImpl implements ReviewDao {
 		List<Review> reviews = new ArrayList<>();
 
 		try (Connection con = ds.getConnection()) {
-			String sql = "select * from watcing left outer join review " 
-		+ "on watcing.id = review.id";
+			String sql = "select * from review order by id desc "; 
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
+				
 				reviews.add(mapToReview(rs));
 			}
 		} catch (Exception e) {
@@ -40,11 +40,9 @@ public class ReviewDaoImpl implements ReviewDao {
 	public Review findById(int id) throws Exception {
 		Review review = null;
 		try (Connection con = ds.getConnection()) {
-			String sql = "select * from watcing left outer join review "
-					+ "on watcing.id = review.id"
-					+ " where id=? ";
+			String sql = "select * from watcing left outer join review " + "on watcing.id = review.id" + " where id=? ";
 			PreparedStatement stmt = con.prepareStatement(sql);
-			
+
 			stmt.setObject(1, id, Types.INTEGER);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
@@ -60,12 +58,13 @@ public class ReviewDaoImpl implements ReviewDao {
 	public void insert(Review review) throws Exception {
 		try (Connection con = ds.getConnection()) {
 			String sql = "insert into review " 
-		+ " (name,text,revaluation,regostered)" 
-					+ " values(?,?,?,now())";
+		                + " (name,text,evaluation,registered)" 
+		                + " values(?,?,?,now()) ";
 			PreparedStatement stmt = con.prepareCall(sql);
 			stmt.setString(1, review.getName());
 			stmt.setString(2, review.getText());
-			stmt.setInt(3, review.getRevaluation());
+			stmt.setObject(3, review.getEvaluation(),Types.INTEGER);
+			
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			throw e;
@@ -75,11 +74,11 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public void update(Review review) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "update review set name=?, text=?, revaluation=? " + " where id=?";
+			String sql = "update review set name=?, text=?, evaluation=? " + " where id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, review.getName());
 			stmt.setString(2, review.getText());
-			stmt.setObject(3, review.getRevaluation(), Types.INTEGER);
+			stmt.setObject(3, review.getEvaluation(), Types.INTEGER);
 			stmt.setObject(4, review.getId(), Types.INTEGER);
 			stmt.executeUpdate();
 		} catch (Exception e) {
@@ -105,7 +104,7 @@ public class ReviewDaoImpl implements ReviewDao {
 		review.setName(rs.getString("name"));
 		review.setText(rs.getString("text"));
 		review.setRegistered(rs.getTimestamp("registered"));
-		review.setRevaluation(rs.getInt("revaluation"));
+		review.setEvaluation(rs.getInt("evaluation"));
 		return review;
 	}
 
