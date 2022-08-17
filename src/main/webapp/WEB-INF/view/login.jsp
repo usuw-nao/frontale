@@ -22,8 +22,14 @@ Login loginUser = (Login) session.getAttribute("loginUser");
 		<a href="juge">サッカー応援判定で遊ぶ</a>
 	</p>
 	<p>
-		<a href="listWatch">観戦履歴</a>を見る
+		<a href="listWatch">観戦履歴</a>
 	</p>
+	<p>
+	<a href="">サッカー教室予約</a>
+	</p>
+	<p>
+	<a href="">選手名鑑</a></p>
+	
 	<p>
 		<a href="logout">ログアウト</a>
 	</p>
