@@ -27,7 +27,7 @@
 				<td><a href="updateWatch?id=<c:out value="${watch.id }" />">更新</a></td>
 				<td><a href="deleteWatch?id=<c:out value="${watch.id }" />">削除</a></td>
 				
-				<td><a href="Review?=id=<c:out value="${review}" />">レビュー</a></td>
+				<td><a href="Review?id=<c:out value="${review}" />">レビュー</a></td>
 			</tr>
 		</c:forEach>
 	</table>
